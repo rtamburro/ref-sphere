@@ -42,6 +42,8 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :test do
@@ -56,3 +58,10 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'simple_form'
+gem 'friendly_id', '~> 5.4.0'
+gem "simple_calendar", "~> 2.4"
+gem 'devise'
+gem 'cancancan'
+gem 'devise_invitable', '~> 2.0.0'
+gem "phonelib"
+gem 'faker'
