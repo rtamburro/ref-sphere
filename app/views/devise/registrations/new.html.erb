@@ -1,5 +1,5 @@
 <h2>Sign up</h2>
-
+<div class="mt-32 ml-32 mr-32">
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
@@ -15,6 +15,32 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.simple_fields_for :address do |a| %>
+      <%= a.input :street_address, id: :street_address,
+                 required: true,
+                 input_html: { autocomplete: "email" } %>
+      <%= a.input :city, id: :city,
+                 required: true,
+                 input_html: { autocomplete: "email" } %>
+      <%= a.input :state, id: :state,
+                 required: true,
+                 input_html: { autocomplete: "email" } %>
+      <%= a.input :zip_code, id: :zip_code,
+                 required: true,
+                 input_html: { autocomplete: "email" } %>
+    <% end %>
+    <%= f.input :cell_phone,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "cell phone" }%>
+    <%= f.input :work_phone,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "work phone" }%>
+    <%= f.input :home_phone,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "home phone" }%>
   </div>
 
   <div class="form-actions">
@@ -22,4 +48,6 @@
   </div>
 <% end %>
 
+
 <%= render "devise/shared/links" %>
+</div>

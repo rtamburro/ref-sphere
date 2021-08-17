@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Home team:</strong>
+  <%= @game.home_team %>
+</p>
+
+<p>
+  <strong>Away team:</strong>
+  <%= @game.away_team %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @game.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @game.end_time %>
+</p>
+<br>
+
+<p>
+  <strong>Crew Assignments</strong>
+  
+</p>
+
+
+<p><strong>Center: </strong> <%= @game.assignment.center_referee.name %></p>
+<p><strong>AR1: </strong> <%= @game.assignment.assistant_referee_1.name %></p>
+<p><strong>AR2: </strong> <%= @game.assignment.assistant_referee_2.name %></p>
+<p><strong>4th: </strong> <%= @game.assignment.fourth_official.name %></p>
+<br>
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %> |
+<%= link_to 'Assignment', edit_assignment_path(@game) %> 

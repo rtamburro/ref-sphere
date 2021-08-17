@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @assignment.game_id %>
+</p>
+
+<p>
+  <strong>Center referee:</strong>
+  <%= @assignment.center_referee_id %>
+</p>
+
+<p>
+  <strong>Assistant referee 1:</strong>
+  <%= @assignment.assistant_referee_1_id %>
+</p>
+
+<p>
+  <strong>Assistant referee 2:</strong>
+  <%= @assignment.assistant_referee_2_id %>
+</p>
+
+<p>
+  <strong>Fourth official:</strong>
+  <%= @assignment.fourth_official_id %>
+</p>
+
+<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
+<%= link_to 'Back', assignments_path %>

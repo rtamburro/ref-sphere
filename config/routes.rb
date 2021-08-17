@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+  resources :assignments
+  resources :games
   devise_for :users, :controllers => {registrations: 'registrations'}
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  resources :users, :only =>[:show]
+  get 'users/index'
+  match '/users', to: 'users#index', via: 'get'
+  match '/users/:id', to: 'users#show', via: 'get'
 
   root "home#show"
 end

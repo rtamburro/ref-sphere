@@ -9,12 +9,59 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <style>
+      #menu-toggle:checked + #menu {
+        display:block;
+      }
+    </style>
   </head>
 
-  <body>
+  <body class="antialiased">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
+    <header class="lg:px-16 px-6 bg-gray-700 flex flex-wrap items-center lg:py-0 py-2">
+      <div class="flex-1 flex justify-between items-center">
+        <a href="#">
+            <%= image_tag("csrp.webp") %>
+        </a>
+      </div>
+
+        <label for="menu-toggle" class="cursor-pointer lg:hidden block">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="32" height="32" viewBox="0 0 20 20" stroke-width="1.5" stroke="#ffbf00" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <line x1="4" y1="6" x2="20" y2="6" />
+            <line x1="4" y1="12" x2="20" y2="12" />
+            <line x1="4" y1="18" x2="20" y2="18" />
+          </svg>
+        </label>
+        <input type="checkbox" class="hidden" id="menu-toggle" />
+
+        <div class="hidden lg:flex lg:items-center lg:w-auto w-full" id="menu">
+          <nav>
+            <ul class="lg:flex items-center justify-between text-base text-white pt-4 lg:pt-0">
+              <li>
+                <a href="#" class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-white">Home</a>
+              </li>
+              <li>
+                <a href="#" class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-white">Pricing</a>
+              </li>
+              <li>
+                <a href="#" class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-white">Documentation</a>
+              </li>
+              <li>
+                <a href="#" class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-white">Support</a>
+              </li>
+            </ul>
+          </nav>
+          <a href="#" class="lg:ml-4 flex items-center justify-start lg:mb-0 mb-4 cursor-pointer">
+            <img src="https://cbsnews3.cbsistatic.com/hub/i/r/2019/08/14/fdb57460-b0a7-4298-b25d-f58309048548/thumbnail/620x413/45e28f81a749aaa20eeb409393ed45c5/gettyimages-1168042139.jpg" class="rounded-full w-10 h-10 border-2 border-transparent hover:border-red-500" alt="name">
+          </a> 
+        </div>
+      </div>
+      
+    </header>
 
 
 

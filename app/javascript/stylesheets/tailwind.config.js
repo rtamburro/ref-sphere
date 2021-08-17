@@ -28,7 +28,8 @@ module.exports = {
       rose: colors.rose,
       white: colors.white,
       black: colors.black,
-      blueGray: colors.blueGray
+      blueGray: colors.blueGray,
+      transparent: 'transparent',
     },  
     extend: {},
   },

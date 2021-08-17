@@ -1,0 +1,33 @@
+<%= simple_form_for(@assignment) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :center_referee, label: "C: " do %>
+      <%= f.select :center_referee_id, User.all.map { |r| [r.first_name, r.id] }, {include_blank: "Select Referee" } %>
+    <% end %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.input :assistant_referee_1, label: "AR1: " do %>
+      <%= f.select :assistant_referee_1_id, User.all.map { |r| [r.first_name, r.id] }, {include_blank: "Select Referee" } %>
+    <% end %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.input :assistant_referee_2, label: "AR2: " do %>
+      <%= f.select :assistant_referee_2_id, User.all.map { |r| [r.first_name, r.id] }, {include_blank: "Select Referee" } %>
+    <% end %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.input :fourth_official, label: "4th: " do %>
+      <%= f.select :fourth_official_id, User.all.map { |r| [r.first_name, r.id] }, {include_blank: "Select Referee" } %>
+    <% end %>
+  </div>
+
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
