@@ -26,6 +26,10 @@ class Assignment < ApplicationRecord
         User.where(id: assistant_referee_2_id).map { |user| user.name }
     end
 
+    def fourth
+        User.where(id: fourth_official_id).map { |user| user.name }
+    end
+
 
 
 

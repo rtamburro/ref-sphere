@@ -1,16 +1,48 @@
+<div class="flex flex-col items-center h-screen my-32">
+  <div class="w-full max-w-lg ">
+    <div class="px-8 pt-6 pb-8 mb-4 bg-white rounded shadow-md">
+      <div class="mb-4">
+        <%= simple_form_for(@game) do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+          <div class="mb-6">
+            <label class="block mb-2 text-sm font-bold text-gray-700" for="username">Home Team</label>
+              <%= f.input :home_team,
+                  label:false, 
+                  input_html: {class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" } %>
+          </div>
+          <div class="mb-6">
+            <label class="block mb-2 text-sm font-bold text-gray-700" for="username">Away Team</label>
+              <%= f.input :away_team,
+                  label:false, 
+                  input_html: {class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" } %>
+          </div>
+          <div class="mb-6">
+            <label class="block mb-2 text-sm font-bold text-gray-700" for="username">Start Time</label>
+              <%= f.input :start_time,
+                  label:false,
+                  default: Time.parse('12:00'),
+                  minute_step: 15,
+                  :ampm => true,
+                  order: %i(month day year),
+                  input_html: {class:"shadow appearance-none border rounded w-22 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" } %>
 
-<%= simple_form_for(@game) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-  <div class="form-inputs">
-    <%= f.input :home_team %>
-    <%= f.input :away_team %>
-    <%= f.input :start_time %>
-    <%= f.input :end_time %>
+          </div>
+          <div class="mb-6">
+            <label class="block mb-2 text-sm font-bold text-gray-700" for="username">End Time</label>
+              <%= f.input :end_time, 
+                  label:false,
+                  default: Time.parse('14:00'),
+                  minute_step: 15,
+                  :ampm => true,
+                  order: %i(month day year),
+                  input_html: {class:"shadow appearance-none border rounded w-22 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" } %>
+          </div>
+          <div class="flex items-center justify-between">
+            <%= f.button :submit, "Create Game", class:"px-4 py-2 font-bold w-full text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline"  %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+</div>

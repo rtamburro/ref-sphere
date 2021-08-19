@@ -2,27 +2,27 @@
 
 <p>
   <strong>Game:</strong>
-  <%= @assignment.game_id %>
+  <%= @assignment.game.teams %>
 </p>
 
 <p>
   <strong>Center referee:</strong>
-  <%= @assignment.center_referee_id %>
+  <%= @assignment.center[0] %>
 </p>
 
 <p>
   <strong>Assistant referee 1:</strong>
-  <%= @assignment.assistant_referee_1_id %>
+  <%= @assignment.ar1[0] %>
 </p>
 
 <p>
   <strong>Assistant referee 2:</strong>
-  <%= @assignment.assistant_referee_2_id %>
+  <%= @assignment.ar2[0]  %>
 </p>
 
 <p>
   <strong>Fourth official:</strong>
-  <%= @assignment.fourth_official_id %>
+  <%= @assignment.fourth[0] %>
 </p>
 
 <%= link_to 'Edit', edit_assignment_path(@assignment) %> |

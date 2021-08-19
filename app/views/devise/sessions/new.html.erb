@@ -1,20 +1,30 @@
-<h2>Log in</h2>
+<div class="flex flex-col items-center h-screen my-56">
+  <div class="w-full max-w-xs ">
+    <div class="px-8 pt-6 pb-8 mb-4 bg-white rounded shadow-md">
+      <div class="mb-4">
+        <label class="block mb-2 text-sm font-bold text-gray-700" for="username">Email</label>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= f.input :email,
+                      required: false,
+                      autofocus: true,
+                      label: false,
+                      input_html: { autocomplete: "email", class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" } %>
+      </div>
+      <div class="mb-6">
+        <label class="block mb-2 text-sm font-bold text-gray-700" for="username">Password</label>
+          <%= f.input :password,
+                    required: false,
+                    label: false,
+                    input_html: { autocomplete: "current-password", class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" } %>
+      </div>
+      <div class="flex items-center justify-between">
+        <%= f.button :submit, "Login", class:"px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline"  %>
+        <a class="inline-block text-sm font-bold text-blue-500 align-baseline hover:text-blue-800" href="#">Forgot Password</a>
+      </div>
+      <% end %>
+    </div>
+  </div>  
+</div>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
 
 <%= render "devise/shared/links" %>

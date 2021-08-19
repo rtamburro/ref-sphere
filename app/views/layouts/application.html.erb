@@ -17,18 +17,20 @@
     </style>
   </head>
 
-  <body class="antialiased">
+  <body class="antialiased bg-gray-100">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <header class="lg:px-16 px-6 bg-gray-700 flex flex-wrap items-center lg:py-0 py-2">
-      <div class="flex-1 flex justify-between items-center">
-        <a href="#">
+    <header class="flex flex-wrap items-center px-6 py-2 bg-gray-700 lg:px-16 lg:py-0">
+      <div class="flex items-center justify-between flex-1">
+        <%= link_to root_path do %>
+        <h1 class="flex items-center justify-between flex-1">
             <%= image_tag("csrp.webp") %>
-        </a>
+        </h1>
+        <% end %>
       </div>
 
-        <label for="menu-toggle" class="cursor-pointer lg:hidden block">
+        <label for="menu-toggle" class="block cursor-pointer lg:hidden">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="32" height="32" viewBox="0 0 20 20" stroke-width="1.5" stroke="#ffbf00" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
             <line x1="4" y1="6" x2="20" y2="6" />
@@ -38,25 +40,46 @@
         </label>
         <input type="checkbox" class="hidden" id="menu-toggle" />
 
-        <div class="hidden lg:flex lg:items-center lg:w-auto w-full" id="menu">
+        <div class="hidden w-full lg:flex lg:items-center lg:w-auto" id="menu">
           <nav>
-            <ul class="lg:flex items-center justify-between text-base text-white pt-4 lg:pt-0">
+            <ul class="items-center justify-between pt-4 text-base text-white lg:flex lg:pt-0">
               <li>
-                <a href="#" class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-white">Home</a>
+                <%= link_to root_path, class:"lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-white" do %>
+                  <h1>Home</h1>
+                <% end %>
               </li>
               <li>
-                <a href="#" class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-white">Pricing</a>
+                <%= link_to games_path, class:"lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-white" do %>
+                  <h1>Games</h1>
+                <% end %>
               </li>
               <li>
-                <a href="#" class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-white">Documentation</a>
+                <%= link_to root_path, class:"lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-white" do %>
+                  <h1>Schedule</h1>
+                <% end %>
               </li>
               <li>
-                <a href="#" class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-white">Support</a>
+                <%= link_to root_path, class:"lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-white" do %>
+                  <h1>Availability</h1>
+                <% end %>
               </li>
+              <li>
+                <%= link_to new_user_session_path, class:"lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-white" do %>
+                  <h1>Sign In</h1>
+                <% end %>
+              </li>
+              <% if user_signed_in? %>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete, class:"lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-white" do %>
+                  <h1>Sign Out</h1>
+                <% end %>
+              </li>
+              <% end %>
+              
             </ul>
           </nav>
-          <a href="#" class="lg:ml-4 flex items-center justify-start lg:mb-0 mb-4 cursor-pointer">
-            <img src="https://cbsnews3.cbsistatic.com/hub/i/r/2019/08/14/fdb57460-b0a7-4298-b25d-f58309048548/thumbnail/620x413/45e28f81a749aaa20eeb409393ed45c5/gettyimages-1168042139.jpg" class="rounded-full w-10 h-10 border-2 border-transparent hover:border-red-500" alt="name">
+          <a href="#" class="flex items-center justify-start mb-4 cursor-pointer lg:ml-4 lg:mb-0">
+            <img src="https://cbsnews3.cbsistatic.com/hub/i/r/2019/08/14/fdb57460-b0a7-4298-b25d-f58309048548/thumbnail/620x413/45e28f81a749aaa20eeb409393ed45c5/gettyimages-1168042139.jpg" class="w-10 h-10 border-2 border-transparent rounded-full hover:border-red-500" alt="name">
           </a> 
         </div>
       </div>

@@ -1,33 +1,41 @@
-<%= simple_form_for(@assignment) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-  <div class="form-inputs">
-    <%= f.input :center_referee, label: "C: " do %>
-      <%= f.select :center_referee_id, User.all.map { |r| [r.first_name, r.id] }, {include_blank: "Select Referee" } %>
-    <% end %>
+<div class="flex flex-col items-center h-screen my-32">
+  <div class="w-full max-w-lg ">
+    <div class="px-8 pt-6 pb-8 mb-4 bg-white rounded shadow-md">
+      <div class="mb-4">
+        <%= simple_form_for(@assignment) do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+          <div class="mb-6">
+            <label class="block mb-2 text-sm font-bold text-gray-700">Editing Assignment for:<Br> <%= @assignment.game.teams %></label>
+            
+            <label class="block mb-2 text-sm font-bold text-gray-700" for="username">Center:</label>
+                <%= f.input :center_referee, label: false do %>
+                    <%= f.select :center_referee_id, User.all.map { |r| [r.name, r.id] }, {include_blank: "Select Referee"}, {class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" } %>
+                <% end %>       
+          </div>
+          <div class="mb-6">
+            <label class="block mb-2 text-sm font-bold text-gray-700" for="username">Assistant Referee 1:</label>
+                <%= f.input :assistant_referee_1_id, label: false do %>
+                    <%= f.select :assistant_referee_1_id, User.all.map { |r| [r.name, r.id] }, {include_blank: "Select Referee"}, {class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" } %>
+                <% end %>       
+            </div>
+            <div class="mb-6">
+            <label class="block mb-2 text-sm font-bold text-gray-700" for="username">Assistant Referee 2:</label>
+                <%= f.input :assistant_referee_2_id, label: false do %>
+                    <%= f.select :assistant_referee_2_id, User.all.map { |r| [r.name, r.id] }, {include_blank: "Select Referee"}, {class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" } %>
+                <% end %>       
+            </div>
+            <div class="mb-6">
+            <label class="block mb-2 text-sm font-bold text-gray-700" for="username">Fourth Official:</label>
+                <%= f.input :fourth_official, label: false do %>
+                    <%= f.select :fourth_official_id, User.all.map { |r| [r.name, r.id] }, {include_blank: "Select Referee"}, {class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" } %>
+                <% end %>       
+            </div>
+            <div class="flex items-center justify-between">
+                <%= f.button :submit, "Update Assignment", class:"px-4 py-2 font-bold w-full text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline"  %>
+            </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-inputs">
-    <%= f.input :assistant_referee_1, label: "AR1: " do %>
-      <%= f.select :assistant_referee_1_id, User.all.map { |r| [r.first_name, r.id] }, {include_blank: "Select Referee" } %>
-    <% end %>
-  </div>
-
-  <div class="form-inputs">
-    <%= f.input :assistant_referee_2, label: "AR2: " do %>
-      <%= f.select :assistant_referee_2_id, User.all.map { |r| [r.first_name, r.id] }, {include_blank: "Select Referee" } %>
-    <% end %>
-  </div>
-
-  <div class="form-inputs">
-    <%= f.input :fourth_official, label: "4th: " do %>
-      <%= f.select :fourth_official_id, User.all.map { |r| [r.first_name, r.id] }, {include_blank: "Select Referee" } %>
-    <% end %>
-  </div>
-
-
-  <div>
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
