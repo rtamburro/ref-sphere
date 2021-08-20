@@ -18,10 +18,10 @@
     <% @assignments.each do |assignment| %>
       <tr>
         <td><%= assignment.game.teams %></td>
-        <td><%= assignment.center_referee.name %></td>
-        <td><%= assignment.assistant_referee_1.name %></td>
-        <td><%= assignment.assistant_referee_2.name %></td>
-        <td><%= assignment.fourth_official.name %></td>
+        <td><%= assignment.center[0] %></td>
+        <td><%= assignment.ar1[0] %></td>
+        <td><%= assignment.ar2[0] %></td>
+        <td><%= assignment.fourth[0] %></td>
         <td><%= link_to 'Show', assignment %></td>
         <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
         <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>

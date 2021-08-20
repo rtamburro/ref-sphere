@@ -10,9 +10,7 @@ class Assignment < ApplicationRecord
     accepts_nested_attributes_for :game    
 
     
-    # def users
-    #     User.where(id: [center_referee_id, assistant_referee_1_id, assistant_referee_2_id]).map { |user| user.name}
-    # end
+    
 
     def center
         User.where(id: center_referee_id).map { |user| user.name }
@@ -29,9 +27,4 @@ class Assignment < ApplicationRecord
     def fourth
         User.where(id: fourth_official_id).map { |user| user.name }
     end
-
-
-
-
-
 end

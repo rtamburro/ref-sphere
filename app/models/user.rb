@@ -8,12 +8,18 @@ class User < ApplicationRecord
   has_many :games, through: :assignments
 
   def name
-    name = "#{first_name.capitalize} #{last_name.capitalize} "
+    name = "#{first_name&.capitalize} #{last_name&.capitalize} "
   end
 
   def written_address
     written_address = "#{address["city"]}, #{address["state"]}, #{address["zip_code"]}"
   end
+
+
+  def assigned_games
+    Game.joins(:assignment).where('assignments.center_referee_id = ? OR assignments.assistant_referee_1_id = ? OR assignments.assistant_referee_2_id = ? OR assignments.fourth_official_id = ?', id, id, id, id).map { |game| game.teams}
+  end
+
 
   def formatted_cell_phone
     parsed_phone = Phonelib.parse(cell_phone)

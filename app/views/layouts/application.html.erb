@@ -17,15 +17,15 @@
     </style>
   </head>
 
-  <body class="antialiased bg-gray-100">
+  <body class="antialiased bg-gray-200">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
     <header class="flex flex-wrap items-center px-6 py-2 bg-gray-700 lg:px-16 lg:py-0">
       <div class="flex items-center justify-between flex-1">
         <%= link_to root_path do %>
-        <h1 class="flex items-center justify-between flex-1">
-            <%= image_tag("csrp.webp") %>
+        <h1 class="flex items-center justify-between flex-1 text-2xl text-white">
+            RefSphere
         </h1>
         <% end %>
       </div>
@@ -44,33 +44,38 @@
           <nav>
             <ul class="items-center justify-between pt-4 text-base text-white lg:flex lg:pt-0">
               <li>
-                <%= link_to root_path, class:"lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-white" do %>
+                <%= link_to root_path, class:"lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-orange-500" do %>
                   <h1>Home</h1>
                 <% end %>
               </li>
               <li>
-                <%= link_to games_path, class:"lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-white" do %>
+                <%= link_to games_path, class:"lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-orange-500" do %>
                   <h1>Games</h1>
                 <% end %>
               </li>
               <li>
-                <%= link_to root_path, class:"lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-white" do %>
+                <%= link_to root_path, class:"lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-orange-500" do %>
                   <h1>Schedule</h1>
                 <% end %>
               </li>
               <li>
-                <%= link_to root_path, class:"lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-white" do %>
+                <%= link_to root_path, class:"lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-orange-500" do %>
                   <h1>Availability</h1>
                 <% end %>
               </li>
               <li>
-                <%= link_to new_user_session_path, class:"lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-white" do %>
+                <%= link_to new_user_session_path, class:"lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-orange-500" do %>
                   <h1>Sign In</h1>
                 <% end %>
               </li>
               <% if user_signed_in? %>
               <li>
-                <%= link_to destroy_user_session_path, method: :delete, class:"lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-white" do %>
+                <%= link_to current_user, class:"lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-orange-500" do %>
+                  <h1>Profile</h1>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete, class:"lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-orange-500" do %>
                   <h1>Sign Out</h1>
                 <% end %>
               </li>
